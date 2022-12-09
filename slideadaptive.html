@@ -1,116 +1,124 @@
-<style>
-    .container-slider {
-        max-width: 400px;
-        margin: 0px auto;
-        padding: 0px 10px;
-    }
-    .adaptive-banners-wrapper *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-    }
-    .adaptive-banner img{
-        max-width: 100%;
-        position: relative;
-        z-index: 3;
-        border-radius: 10px;
-    }
-    .adaptive-banners-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        overflow-x: scroll;
-        padding: 20px 0px;
-        scroll-behavior: smooth;
-    }
-    .adaptive-banners-wrapper::-webkit-scrollbar {
-        width: 0;
-        display: none;
-    }
-    .adaptive-banner {
-        min-width: 85%;
-        cursor: grab;
-        margin-right: 10px;
-        position: relative;
-        z-index: 4;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-</style>
-
-
-<div class="container-slider">
-    <div class="adaptive-banners">
-        <div class="adaptive-banners-wrapper">
-            <div class="adaptive-banner">
-                <a href="webapp/wcs/stores/servlet/CategoryDisplay?identifier=caviar&categoryId=3074457345616829736&catalogId=[catalogId]&storeId=[storeId]">
-                    <img src="https://www.okeydostavka.ru/wcsstore/OKMarketSAS/okmsk/3banners/2022w49_banner_mini_avd_caviar.jpg" alt="caviar" style="width:100%;"/> 
-                </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .adaptive-banners-wrapper *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .adaptive-banner img{
+            max-width: 100%;
+            position: relative;
+            z-index: 3;
+            border-radius: 10px;
+        }
+        .adaptive-banners-wrapper {
+            display: flex;
+            padding: 20px 0px;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            position: relative;
+            max-width: 400px;
+        }
+        .adaptive-banners-wrapper::-webkit-scrollbar {
+            width: 0;
+            display: none;
+        }
+        .adaptive-banner {
+            min-width: 360px;
+            margin-right: 10px;
+            position: relative;
+            z-index: 4;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .adaptive-slider {
+            position: relative;
+            overflow: hidden;
+            max-width: 400px;
+            margin: 0 !important;
+        }
+    </style>
+    
+        <div class="adaptive-slider">
+            <div class="adaptive-banners-wrapper">
+                <div class="adaptive-banner">
+                    <a href="webapp/wcs/stores/servlet/CategoryDisplay?identifier=caviar&categoryId=3074457345616829736&catalogId=[catalogId]&storeId=[storeId]">
+                        <img src="https://www.okeydostavka.ru/wcsstore/OKMarketSAS/okmsk/3banners/2022w49_banner_mini_avd_caviar.jpg" alt="caviar" style="width:100%;"/> 
+                    </a>
+                </div>
+                <div class="adaptive-banner">
+                    <a href="webapp/wcs/stores/servlet/CategoryDisplay?identifier=muka&categoryId=3074457345616829718&catalogId=[catalogId]&storeId=[storeId]">
+                        <img src="https://www.okeydostavka.ru/wcsstore/OKMarketSAS/okmsk/3banners/2022w49_banner_mini_muka.png" alt="muka" style="width:100%;"/> 
+                    </a>  
+                </div>
+                <div class="adaptive-banner">
+                    <a href="webapp/wcs/stores/servlet/CategoryDisplay?identifier=pelmeni&categoryId=3074457345616829738&catalogId=[catalogId]&storeId=[storeId]">
+                        <img src="https://www.okeydostavka.ru/wcsstore/OKMarketSAS/okmsk/3banners/2022w49_banner_mini_avd_pelmeni.jpg" alt="pelmeni" style="width:100%;"/> 
+                    </a>
+                </div>
             </div>
-            <div class="adaptive-banner">
-                <a href="webapp/wcs/stores/servlet/CategoryDisplay?identifier=muka&categoryId=3074457345616829718&catalogId=[catalogId]&storeId=[storeId]">
-                    <img src="https://www.okeydostavka.ru/wcsstore/OKMarketSAS/okmsk/3banners/2022w49_banner_mini_muka.png" alt="muka" style="width:100%;"/> 
-                </a>  
-            </div>
-            <div class="adaptive-banner">
-                <a href="webapp/wcs/stores/servlet/CategoryDisplay?identifier=pelmeni&categoryId=3074457345616829738&catalogId=[catalogId]&storeId=[storeId]">
-                    <img src="https://www.okeydostavka.ru/wcsstore/OKMarketSAS/okmsk/3banners/2022w49_banner_mini_avd_pelmeni.jpg" alt="pelmeni" style="width:100%;"/> 
-                </a>
-            </div>
-            <div class="scroll-hide"></div>
         </div>
-    </div>
-</div>
-
-<script>
-    const adaptiveSlider = document.querySelector('.adaptive-banners-wrapper');
-    const adaptiveSlide = document.querySelectorAll('.adaptive-banner');
-
-    adaptiveSlide.forEach(function calcLeft(el, index) {
-        let leftPosition = adaptiveSlide[0].offsetLeft + 5;
-        let i = 1;
-
-        function posOne(e) {
-            return x1 = e.changedTouches[0].clientX;
-        };
-
-        function posTwo(e) {
-            return x2 = e.changedTouches[0].clientX;
-        };
-
-        adaptiveSlider.addEventListener('touchstart', (e) => {
-            posOne(e);
+    
+    <script>
+        const adaptiveSlider = document.querySelector('.adaptive-banners-wrapper');
+        const adaptiveSlide = document.querySelectorAll('.adaptive-banner');
+    
+        adaptiveSlide.forEach(function calcLeft(el, index) {
+            let leftPosition = adaptiveSlide[1].offsetLeft;
+            let i = 1;
+    
+            function posOne(e) {
+                return x1 = e.changedTouches[0].clientX;
+            };
+    
+            function posTwo(e) {
+                return x2 = e.changedTouches[0].clientX;
+            };
+    
+            adaptiveSlider.addEventListener('touchstart', (e) => {
+                posOne(e);
+            });
+            adaptiveSlider.addEventListener('touchend', (e) => {
+                posTwo(e);
+                console.log(leftPosition, i)
+                if (x1 > x2) {
+                    if(i === 1) {
+                        adaptiveSlider.scrollLeft = leftPosition;
+                    }
+                    if(i === 2) {
+                        adaptiveSlider.scrollLeft = leftPosition * 2;
+                    }
+                    if(i === 3) {
+                        adaptiveSlider.scrollLeft = leftPosition * 3;
+                    }
+                    i = i + 1;
+                    if(i === 4) {
+                        i = 3;
+                    }
+                }else{
+                    if(i === 2) {
+                        adaptiveSlider.scrollLeft = 0;
+                    }
+                    if(i === 3) {
+                        adaptiveSlider.scrollLeft = leftPosition ;
+                    }
+                    i = i - 1;
+                    if(i === 0) {
+                        i = 1;
+                    }
+                }
+                console.log(leftPosition, i)
+            });
         });
-        adaptiveSlider.addEventListener('touchend', (e) => {
-            posTwo(e);
-            if (x1 > x2) {
-                if(i === 1) {
-                    adaptiveSlider.scrollLeft = leftPosition;
-                }
-                if(i === 2) {
-                    adaptiveSlider.scrollLeft = leftPosition * 2;
-                }
-                if(i === 3) {
-                    adaptiveSlider.scrollLeft = leftPosition * 3;
-                }
-                i = i + 1;
-                if(i === 4) {
-                    i = 3;
-                }
-            }else{
-                if(i === 2) {
-                    adaptiveSlider.scrollLeft = 0;
-                }
-                if(i === 3) {
-                    adaptiveSlider.scrollLeft = leftPosition ;
-                }
-                i = i - 1;
-                if(i === 0) {
-                    i = 1;
-                }
-            }
-        });
-    });
-
-</script>
+    
+    </script>
+</body>
+</html>
